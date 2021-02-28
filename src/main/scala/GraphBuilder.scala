@@ -5,9 +5,9 @@ import org.apache.spark.graphx._
 
 /*
 * DESCRIPTION
-* This class builds a Property Graph that links presences of different
-* students in the same room in the same day, with the property on the edges
-* of how many minutes the two presences are overlapped in time
+* This class builds a property graph that links presences of different
+* students in the same room in the same day; edges have an integer property that stands for 
+* how many minutes the two presences are overlapped in time
 *   - if the outDate is missing, the two presences will be considered at risk
 *   - presence nodes will contain any data needed for further analysis
 *

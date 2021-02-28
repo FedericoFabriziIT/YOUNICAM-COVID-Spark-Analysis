@@ -157,7 +157,7 @@ object GraphAnalizer extends App {
     if(nSeats.contains(presenceW(1).asInstanceOf[Int])){
       return "Studente: " + presenceW.head.toString +
         s", Aula: $aula, Polo: $polo, Sede: $sede, Data: $data - " +
-        "Presences' Ids: " + presenceP.last.toString + ", " + presenceW.last.toString
+        "Id Presenze: " + presenceP.last.toString + ", " + presenceW.last.toString
         //presenceP + ", " + presenceW
     }
     null
