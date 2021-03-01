@@ -1,4 +1,4 @@
-name := "YoUnicam_for_COVID_Analysis"
+name := "YOUNICAM-COVID-Spark-Analysis"
 
 version := "0.1"
 
