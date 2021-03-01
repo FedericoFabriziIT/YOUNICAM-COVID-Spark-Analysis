@@ -213,7 +213,7 @@ object GraphAnalizer extends App {
 
   spark.sql("set spark.sql.legacy.timeParserPolicy=LEGACY")
 
-  print("Provide the parameters for the analysis(student_id: String, minutes: Int, days: Int), separated by a whitespace: ")
+  print("Provide the parameters for the analysis(student_id: String, minutes: Int, days: Int), separated by whitespaces: ")
   val parametersS: String = scala.io.StdIn.readLine()
   val parametersL = parametersS.split(" ").toList
   val student_id: String = parametersL.head
@@ -224,8 +224,9 @@ object GraphAnalizer extends App {
   val outFName = "ExposedStudents.txt"
   val ret = computeStudentsToNotify(student_id, graph, minutes, days, roomsDF).filter(v => v != null).distinct
   val writer = new BufferedWriter(new FileWriter(s"$outFName"))
+  writer.write(s"Positive student: $student_id \n")
   writer.write("These students may have been exposed to SARS-CoV-2 infection and should be warned:\n")
-  writer.write("(Every line refers to a single student and includes where the contact has happened.)\n")
+  writer.write("(Every line refers to a single student and includes where the contact has happened)\n")
   ret.foreach(x => writer.write(x.toString+'\n'))
   writer.close()
   println(s"File $outFName has been created.")
